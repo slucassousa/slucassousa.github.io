@@ -148,9 +148,10 @@ img {
 
 /* Cover Section */
 .cover-section {
-    height: 400px;
+    height: 300px;
     /* Adjust height as needed */
     background-image: url('../images/flores.jpg');
+    --overlay-opacity: 0.65;
     background-size: cover;
     background-position: center;
     display: flex;
@@ -166,7 +167,7 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, var(--overlay-opacity, 0.4));
     /* Overlay to make text readable */
 }
 
@@ -186,22 +187,27 @@ img {
 /* Subpage Headers */
 .header-research {
     background-image: url('../images/pato.jpg');
+    --overlay-opacity: 0.4;
 }
 
 .header-teaching {
     background-image: url('../images/pato.jpg');
+    --overlay-opacity: 0.4;
 }
 
 .header-cv {
     background-image: url('../images/pato.jpg');
+    --overlay-opacity: 0.4;
 }
 
 .header-small-talk {
     background-image: url('../images/pato.jpg');
+    --overlay-opacity: 0.4;
 }
 
 .header-contact {
     background-image: url('../images/pato.jpg');
+    --overlay-opacity: 0.4;
 }
 
 /* Home Section */
