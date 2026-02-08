@@ -6,8 +6,8 @@
     --light-bg: #f8f9fa;
     --white: #ffffff;
     --gray: #6c757d;
-    --font-heading: 'Montserrat', sans-serif;
-    --font-body: 'Roboto', sans-serif;
+    --font-heading: 'Lora', serif;
+    --font-body: 'Lato', sans-serif;
     --section-padding: 80px 0;
     --nav-height: 70px;
 }
@@ -23,7 +23,12 @@ body {
     line-height: 1.6;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-heading);
     margin-top: 0;
     font-weight: 700;
@@ -88,10 +93,11 @@ img {
 
 /* Navbar */
 .navbar {
-    position: sticky;
+    position: absolute;
     top: 0;
-    background-color: var(--white);
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    left: 0;
+    width: 100%;
+    background-color: transparent;
     z-index: 1000;
     height: var(--nav-height);
     display: flex;
@@ -109,7 +115,7 @@ img {
     font-family: var(--font-heading);
     font-weight: 700;
     font-size: 1.25rem;
-    color: var(--text-color);
+    color: var(--white);
 }
 
 .nav-menu {
@@ -118,14 +124,17 @@ img {
 }
 
 .nav-link {
-    color: var(--gray);
+    color: var(--white);
+    opacity: 0.8;
     font-weight: 500;
     padding: 0.5rem 0;
     position: relative;
 }
 
-.nav-link:hover, .nav-link.active {
-    color: var(--primary-color);
+.nav-link:hover,
+.nav-link.active {
+    color: var(--white);
+    opacity: 1;
 }
 
 .nav-toggle {
@@ -134,13 +143,14 @@ img {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--text-color);
+    color: var(--white);
 }
 
 /* Cover Section */
 .cover-section {
-    height: 400px; /* Adjust height as needed */
-    background-image: url('../images/pato.jpg');
+    height: 400px;
+    /* Adjust height as needed */
+    background-image: url('../images/flores.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -156,7 +166,8 @@ img {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.4); /* Overlay to make text readable */
+    background: rgba(0, 0, 0, 0.4);
+    /* Overlay to make text readable */
 }
 
 .cover-content {
@@ -168,8 +179,29 @@ img {
 
 .cover-content h1 {
     font-size: 4rem;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     margin: 0;
+}
+
+/* Subpage Headers */
+.header-research {
+    background-image: url('../images/pato.jpg');
+}
+
+.header-teaching {
+    background-image: url('../images/pato.jpg');
+}
+
+.header-cv {
+    background-image: url('../images/pato.jpg');
+}
+
+.header-small-talk {
+    background-image: url('../images/pato.jpg');
+}
+
+.header-contact {
+    background-image: url('../images/pato.jpg');
 }
 
 /* Home Section */
@@ -193,7 +225,7 @@ img {
 
 .profile-image img {
     border-radius: 50%;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .profile-content {
@@ -238,14 +270,14 @@ img {
 .card {
     background: var(--white);
     border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
     transition: transform 0.3s, box-shadow 0.3s;
     border: 1px solid #eee;
 }
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
 .card-body {
@@ -373,8 +405,17 @@ img {
         background: var(--white);
         flex-direction: column;
         padding: 20px;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
         display: none;
+    }
+
+    .nav-menu .nav-link {
+        color: var(--gray);
+    }
+
+    .nav-menu .nav-link:hover,
+    .nav-menu .nav-link.active {
+        color: var(--primary-color);
     }
 
     .nav-menu.active {
@@ -384,7 +425,7 @@ img {
     .profile-wrapper {
         text-align: center;
     }
-    
+
     .profile-content {
         text-align: center;
     }
