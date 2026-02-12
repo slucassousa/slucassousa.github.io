@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Title - Lucas Sousa</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../css/style.css">
+    <style>
+        .course-section {
+            padding: 40px 0;
+        }
+
+        .course-materials,
+        .course-announcements,
+        .course-gallery {
+            margin-bottom: 40px;
+        }
+
+        .material-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .material-list li {
+            margin-bottom: 10px;
+        }
+
+        .material-list a {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .material-list a:hover {
+            text-decoration: underline;
+        }
+
+        .announcement-card {
+            background: #f8f9fa;
+            border-left: 4px solid var(--primary-color);
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .announcement-date {
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="../index.html" class="logo">Lucas Sousa</a>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu">
+                <li><a href="../index.html" class="nav-link">Home</a></li>
+                <li><a href="../research.html" class="nav-link">Research</a></li>
+                <li><a href="../teaching.html" class="nav-link active">Teaching and Etc.</a></li>
+                <li><a href="../small_talk.html" class="nav-link">Small Talk</a></li>
+                <li><a href="https://www.google.com" class="nav-link" target="_blank">CV</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Course Header -->
+    <header class="cover-section header-teaching">
+        <div class="cover-content">
+            <h1>Course Name</h1>
+        </div>
+    </header>
+
+    <!-- Course Content -->
+    <section class="section">
+        <div class="container">
+            <div class="course-intro">
+                <h2 class="section-title">Course Overview</h2>
+                <p>Welcome to the course page. Here you will find all the necessary materials, announcements, and
+                    resources for the course.</p>
+                <p>This course covers [Brief Description of the Course].</p>
+            </div>
+
+            <!-- Announcements -->
+            <div class="course-announcements">
+                <h3>Announcements</h3>
+                <div class="announcement-card">
+                    <div class="announcement-date">February 10, 2026</div>
+                    <p>Welcome to the course! Classes start next week.</p>
+                </div>
+                <div class="announcement-card">
+                    <div class="announcement-date">January 15, 2026</div>
+                    <p>Syllabus has been updated.</p>
+                </div>
+            </div>
+
+            <!-- Teaching Materials -->
+            <div class="course-materials">
+                <h3>Teaching Materials</h3>
+                <div class="grid-container">
+                    <div>
+                        <h4>Lectures</h4>
+                        <ul class="material-list">
+                            <li><a href="#"><i class="fas fa-file-pdf"></i> Lecture 1: Introduction</a></li>
+                            <li><a href="#"><i class="fas fa-file-pdf"></i> Lecture 2: Advanced Topics</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4>Exercises</h4>
+                        <ul class="material-list">
+                            <li><a href="#"><i class="fas fa-list-ol"></i> List 1: Basics</a></li>
+                            <li><a href="#"><i class="fas fa-list-ol"></i> List 2: Advanced Problems</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gallery (Images/GIFs) -->
+            <div class="course-gallery">
+                <h3>Gallery</h3>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://placehold.co/400x300" alt="Course Image 1">
+                        <p class="text-center">Figure 1: Description</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://placehold.co/400x300" alt="Course Image 2">
+                        <p class="text-center">Figure 2: Animation</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center" style="margin-top: 40px;">
+                <a href="../teaching.html" class="btn btn-outline"><i class="fas fa-arrow-left"></i> Back to
+                    Teaching</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026</p>
+        </div>
+    </footer>
+
+    <script src="../js/main.js"></script>
+</body>
+
+</html>

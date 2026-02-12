@@ -323,6 +323,15 @@ img {
     border-bottom: none;
 }
 
+.list-item h4 a {
+    color: var(--text-color);
+}
+
+.list-item h4 a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
 .list-item .date {
     font-weight: 700;
     color: var(--primary-color);
