@@ -12,6 +12,97 @@
     --nav-height: 70px;
 }
 
+body.dark-mode-blue {
+    --text-color: #e0e0e0;
+    --light-bg: #1a237e;
+    /* Medium Dark Blue */
+    --white: #283593;
+    /* Slightly lighter blue for cards */
+    --gray: #b0bec5;
+    background-color: #1a237e;
+}
+
+body.dark-mode-black {
+    --text-color: #e0e0e0;
+    --light-bg: #121212;
+    /* Black/Dark Gray */
+    --white: #1e1e1e;
+    /* Dark Gray for cards */
+    --gray: #b0bec5;
+    background-color: #121212;
+}
+
+/* Dark Mode Overrides */
+body.dark-mode-blue .navbar,
+body.dark-mode-black .navbar {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Semi-transparent nav in dark mode */
+}
+
+body.dark-mode-blue .card,
+body.dark-mode-black .card,
+body.dark-mode-blue .list-item,
+body.dark-mode-black .list-item,
+body.dark-mode-blue .shuffle-item,
+body.dark-mode-black .shuffle-item,
+body.dark-mode-blue .shuffle-btn,
+body.dark-mode-black .shuffle-btn {
+    border-color: #444;
+}
+
+body.dark-mode-blue a,
+body.dark-mode-black a {
+    color: #90caf9;
+    /* Lighter blue for links in dark mode */
+}
+
+body.dark-mode-blue a:hover,
+body.dark-mode-black a:hover {
+    color: #ffffff;
+}
+
+body.dark-mode-blue .section-title::after,
+body.dark-mode-black .section-title::after {
+    background: #90caf9;
+}
+
+body.dark-mode-blue .btn-outline,
+body.dark-mode-black .btn-outline {
+    border-color: #90caf9;
+    color: #90caf9;
+}
+
+body.dark-mode-blue .btn-outline:hover,
+body.dark-mode-black .btn-outline:hover {
+    background-color: #90caf9;
+    color: var(--light-bg);
+}
+
+/* Floating Dark Mode Toggle */
+#dark-mode-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1001;
+    /* Above navbar */
+    background: var(--white);
+    color: var(--text-color);
+    border: 1px solid var(--gray);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s;
+}
+
+#dark-mode-toggle:hover {
+    transform: scale(1.1);
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -75,12 +166,7 @@ img {
 }
 
 .section-title::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 4px;
-    background: var(--primary-color);
-    margin: 10px auto 0;
+    display: none;
 }
 
 .alt-bg {
@@ -213,10 +299,10 @@ img {
 
 .profile-wrapper {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 40px;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
 }
 
 .profile-image {
@@ -225,8 +311,10 @@ img {
 }
 
 .profile-image img {
-    border-radius: 50%;
+    border-radius: 8px;
+    /* Changed to square-ish with rounded corners as it's a profile picture now */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    width: 100%;
 }
 
 .profile-content {
@@ -386,7 +474,6 @@ img {
 .blog-post {
     padding: 1.5rem;
     background: #fdfdfd;
-    border-left: 4px solid var(--primary-color);
 }
 
 .blog-post h4 {
