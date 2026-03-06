@@ -462,10 +462,25 @@ img {
     color: var(--white);
 }
 
+.btn-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 0;
+    border: none;
+    background: none;
+    border-radius: 0;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-transform: none;
+    font-size: 1rem;
+    transition: color 0.3s;
+}
+
 .btn-back:hover {
     background: transparent;
-    color: var(--text-color);
-    border-color: var(--text-color);
+    color: var(--primary-dark);
+    text-decoration: underline;
 }
 
 /* Blog/Small Talk */
@@ -667,8 +682,8 @@ img {
     width: 100%;
     display: flex;
     justify-content: space-between;
-    padding: 0 1px; /*I did a gambiarra here because the button was weird
-    /* Reduced from 80px to be safer */
+    padding: 0 1px;
+    /* Space from screen edges */
     transform: translateY(-50%);
     pointer-events: none;
     z-index: 2010;
