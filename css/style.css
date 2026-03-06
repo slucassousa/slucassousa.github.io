@@ -10,6 +10,10 @@
     --font-body: 'Lato', sans-serif;
     --section-padding: 80px 0;
     --nav-height: 70px;
+    --profile-img-size: 300px;
+    /* Size of the profile image */
+    --profile-content-gap: 100px;
+    /* Space between image and text */
 }
 
 body.dark-mode-blue {
@@ -112,6 +116,7 @@ body {
     font-family: var(--font-body);
     color: var(--text-color);
     line-height: 1.6;
+    font-size: 14pt;
 }
 
 h1,
@@ -300,19 +305,18 @@ img {
 .profile-wrapper {
     display: flex;
     align-items: flex-start;
-    gap: 40px;
+    gap: var(--profile-content-gap);
     flex-wrap: wrap;
     justify-content: flex-start;
 }
 
 .profile-image {
-    flex: 0 0 250px;
+    flex: 0 0 var(--profile-img-size);
     text-align: center;
 }
 
 .profile-image img {
-    border-radius: 8px;
-    /* Changed to square-ish with rounded corners as it's a profile picture now */
+    border-radius: 0;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     width: 100%;
 }
@@ -574,4 +578,121 @@ img {
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     color: var(--primary-color);
     border-color: var(--primary-color);
+}
+
+/* Gallery and Lightbox */
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    /* Fallback for small screens */
+    gap: 10px;
+    padding: 20px 0;
+}
+
+@media (min-width: 1200px) {
+    .gallery-grid {
+        grid-template-columns: repeat(8, 1fr);
+        /* 8 images per row as requested */
+    }
+}
+
+.gallery-item {
+    cursor: pointer;
+    overflow: hidden;
+    aspect-ratio: 1 / 1;
+    background: #eee;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Lightbox Modal */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.9);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.lightbox.active {
+    display: flex;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    position: relative;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    display: block;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.lightbox-close {
+    position: fixed;
+    top: 40px;
+    right: 40px;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+    z-index: 2010;
+    transition: transform 0.3s;
+}
+
+.lightbox-close:hover {
+    transform: scale(1.2);
+}
+
+.lightbox-nav {
+    position: fixed;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1px; /*I did a gambiarra here because the button was weird
+    /* Reduced from 80px to be safer */
+    transform: translateY(-50%);
+    pointer-events: none;
+    z-index: 2010;
+}
+
+.lightbox-btn {
+    color: white;
+    font-size: 24px;
+    /* Smaller font size */
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    width: 45px;
+    /* Smaller button size */
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: auto;
+    transition: all 0.3s;
+}
+
+.lightbox-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
 }
