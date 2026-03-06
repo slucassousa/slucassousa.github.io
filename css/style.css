@@ -350,7 +350,15 @@ img {
 }
 
 .social-links a:hover {
-    color: var(--primary-color);
+    color: var(--text-color);
+    /* Disable hover color change */
+}
+
+.lattes-icon {
+    height: 1em;
+    width: auto;
+    vertical-align: middle;
+    /* Removed filter that caused black square on images with white backgrounds */
 }
 
 /* Cards (Research & General) */
