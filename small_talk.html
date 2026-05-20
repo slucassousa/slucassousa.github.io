@@ -53,22 +53,31 @@
             <!-- Left Column: Posts -->
             <div class="posts-column">
                 <h2 class="section-title">Posts</h2>
-                <div class="listing">
-                    <div class="list-item">
-                        <div class="date">Feb 2026</div>
-                        <div class="details">
-                            <h4><a href="Small_Talk/posts/post_template.html">Post title</a></h4>
-                            <p>Post description...</p>
-                        </div>
-                    </div>
-                    <div class="list-item">
-                        <div class="date">Jan 2026</div>
-                        <div class="details">
-                            <h4><a href="Small_Talk/posts/post_template.html">Post title</a></h4>
-                            <p>Post description...</p>
-                        </div>
-                    </div>
+                <div class="listing" id="posts-container">
+                    <!-- Posts will be loaded dynamically -->
                 </div>
+                <script>
+                    document.addEventListener('DOMContentLoaded', async () => {
+                        const container = document.getElementById('posts-container');
+                        try {
+                            const response = await fetch('posts.json');
+                            const posts = await response.json();
+                            const cardsContent = posts.map(post => `
+                                <div class="list-item">
+                                    <div class="date">${post.date}</div>
+                                    <div class="details">
+                                        <h4>${post.url ? `<a href="${post.url}">${post.title}</a>` : post.title}</h4>
+                                        <p>${post.description}</p>
+                                    </div>
+                                </div>
+                            `)
+                            container.innerHTML = cardsContent.join('');
+                        } catch (error) {
+                            console.error('Error loading posts:', error);
+                            container.innerHTML = '<p>Error loading posts.</p>';
+                        }
+                    });
+                </script>
             </div>
 
             <!-- Right Column: Shuffle Content -->

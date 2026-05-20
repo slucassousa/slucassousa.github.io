@@ -51,22 +51,31 @@
     <section id="teaching" class="section">
         <div class="container">
             <h2 class="section-title">Teaching and Etc.</h2>
-            <div class="listing">
-                <div class="list-item">
-                    <div class="date">Year</div>
-                    <div class="details">
-                        <h4><a href="courses/course_template.html">Course Name</a></h4>
-                        <p>Institution.</p>
-                    </div>
-                </div>
-                <div class="list-item">
-                    <div class="date">Year</div>
-                    <div class="details">
-                        <h4>Talk Title</h4>
-                        <p>Conference/Institution.</p>
-                    </div>
-                </div>
+            <div class="listing" id="teaching-container">
+                <!-- Teaching materials will be loaded dynamically -->
             </div>
+
+            <script>
+                document.addEventListener('DOMContentLoaded', async () => {
+                    const container = document.getElementById('teaching-container');
+                    try {
+                        const response = await fetch('teaching.json');
+                        const materials = await response.json();
+                        container.innerHTML = materials.map(item => `
+                            <div class="list-item">
+                                <div class="date">${item.date}</div>
+                                <div class="details">
+                                    <h4>${item.url ? `<a href="${item.url}">${item.title}</a>` : item.title}</h4>
+                                    <p>${item.description}</p>
+                                </div>
+                            </div>
+                        `).join('');
+                    } catch (error) {
+                        console.error('Error loading teaching materials:', error);
+                        container.innerHTML = '<p>Error loading teaching materials.</p>';
+                    }
+                });
+            </script>
         </div>
     </section>
 

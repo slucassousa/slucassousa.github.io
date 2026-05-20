@@ -1,0 +1,13 @@
+[
+  {
+    "date": "Year",
+    "title": "Course Name",
+    "url": "course.html?id=course_template",
+    "description": "Institution."
+  },
+  {
+    "date": "Year",
+    "title": "Talk Title",
+    "description": "Conference/Institution."
+  }
+]
