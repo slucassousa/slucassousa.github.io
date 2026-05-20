@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,51 +8,79 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <style>
-        .course-section { padding: 40px 0; }
+        .course-section {
+            padding: 40px 0;
+        }
+
         .course-content {
             margin-bottom: 40px;
             font-size: 1.1rem;
             line-height: 1.8;
         }
+
         /* Markdown generated elements styling */
-        .course-content ul { padding-left: 20px; }
-        .course-content li { margin-bottom: 10px; }
-        .course-content h2, .course-content h3 { margin-top: 30px; }
-        .course-content a { color: var(--primary-color); text-decoration: none; display: inline-flex; align-items: center; gap: 8px; }
-        .course-content a:hover { text-decoration: underline; }
-        
+        .course-content ul {
+            padding-left: 20px;
+        }
+
+        .course-content li {
+            margin-bottom: 10px;
+        }
+
+        .course-content h2,
+        .course-content h3 {
+            margin-top: 30px;
+        }
+
+        .course-content a {
+            color: var(--primary-color);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .course-content a:hover {
+            text-decoration: underline;
+        }
+
         .announcement-card {
             background: #f8f9fa;
             border-left: 4px solid var(--primary-color);
             padding: 15px;
             margin-bottom: 15px;
         }
+
         .announcement-date {
             font-size: 0.85rem;
             color: #6c757d;
             margin-bottom: 5px;
         }
-        
+
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
             gap: 20px;
         }
+
         .gallery-grid img {
             width: 100%;
             border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
     </style>
     <!-- Marked.js for Markdown parsing -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -104,7 +133,7 @@
         document.addEventListener('DOMContentLoaded', async () => {
             const urlParams = new URLSearchParams(window.location.search);
             const courseId = urlParams.get('id');
-            
+
             if (!courseId) {
                 document.getElementById('course-title').textContent = 'Course Not Found';
                 document.getElementById('course-content').innerHTML = '<p>No course ID provided.</p>';
@@ -115,7 +144,7 @@
                 // Fetch course metadata
                 const jsonResponse = await fetch('teaching.json');
                 const courses = await jsonResponse.json();
-                
+
                 const courseMeta = courses.find(c => c.url && c.url.includes(`id=${courseId}`));
                 if (courseMeta) {
                     document.getElementById('course-title').textContent = courseMeta.title;
@@ -127,12 +156,12 @@
                 // Fetch the markdown content
                 const mdResponse = await fetch(`courses/${courseId}.md`);
                 if (!mdResponse.ok) throw new Error('Markdown file not found');
-                
+
                 const markdownText = await mdResponse.text();
-                
+
                 // Convert Markdown to HTML
                 document.getElementById('course-content').innerHTML = marked.parse(markdownText);
-                
+
             } catch (error) {
                 console.error(error);
                 document.getElementById('loading-error').style.display = 'block';
@@ -141,4 +170,5 @@
         });
     </script>
 </body>
+
 </html>
