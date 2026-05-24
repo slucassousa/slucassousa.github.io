@@ -237,6 +237,52 @@ img {
     color: var(--white);
 }
 
+/* Dropdown Navigation */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: transparent;
+    min-width: 200px;
+    padding: 10px 0;
+    z-index: 1000;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    display: block;
+    padding: 8px 20px;
+    color: var(--white);
+    opacity: 0.8;
+    font-weight: 500;
+    transition: color 0.3s, opacity 0.3s;
+}
+
+.dropdown-item:hover {
+    color: var(--white);
+    opacity: 1;
+}
+
+/* Dark mode dropdown adjustments */
+body.dark-mode-blue .dropdown-menu,
+body.dark-mode-black .dropdown-menu {
+    background: transparent;
+    border: none;
+}
+
+body.dark-mode-blue .dropdown-item,
+body.dark-mode-black .dropdown-item {
+    color: var(--white);
+}
+
 /* Cover Section */
 .cover-section {
     height: 300px;

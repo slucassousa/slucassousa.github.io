@@ -1,4 +1,46 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
+    // Determine base path based on the script tag src
+    const scriptTag = document.querySelector('script[src$="js/main.js"]');
+    const basePath = scriptTag ? scriptTag.getAttribute('src').replace('js/main.js', '') : './';
+    
+    // Fetch and build navigation
+    try {
+        const response = await fetch(basePath + 'nav.json');
+        const navData = await response.json();
+        const navMenu = document.querySelector('.nav-menu');
+        
+        if (navMenu && navData.length > 0) {
+            navMenu.innerHTML = ''; // Clear existing
+            
+            navData.forEach(item => {
+                const li = document.createElement('li');
+                const isExternal = item.url.startsWith('http');
+                const itemUrl = isExternal ? item.url : basePath + item.url;
+                const targetAttr = item.target ? `target="${item.target}"` : '';
+                
+                if (item.subsections && item.subsections.length > 0) {
+                    li.classList.add('dropdown');
+                    
+                    let subHtml = `<ul class="dropdown-menu">`;
+                    item.subsections.forEach(sub => {
+                        const subIsExternal = sub.url.startsWith('http');
+                        const subUrl = subIsExternal ? sub.url : basePath + sub.url;
+                        subHtml += `<li><a href="${subUrl}" class="dropdown-item">${sub.title}</a></li>`;
+                    });
+                    subHtml += `</ul>`;
+                    
+                    li.innerHTML = `<a href="${itemUrl}" class="nav-link" ${targetAttr}>${item.title}</a>` + subHtml;
+                } else {
+                    li.innerHTML = `<a href="${itemUrl}" class="nav-link" ${targetAttr}>${item.title}</a>`;
+                }
+                
+                navMenu.appendChild(li);
+            });
+        }
+    } catch (e) {
+        console.error('Failed to load navigation', e);
+    }
+
     // Mobile Menu Toggle
     const navToggle = document.querySelector('.nav-toggle');
     const navMenu = document.querySelector('.nav-menu');
@@ -10,9 +52,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Close menu when clicking a link (mobile)
-    document.querySelectorAll('.nav-link').forEach(link => {
+    document.querySelectorAll('.nav-link, .dropdown-item').forEach(link => {
         link.addEventListener('click', () => {
-            if (navMenu) {
+            if (navMenu && window.innerWidth <= 768) {
                 navMenu.classList.remove('active');
             }
         });
@@ -23,10 +65,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const navLinks = document.querySelectorAll('.nav-link');
 
     navLinks.forEach(link => {
-        // Check if the link href is active in the current URL
-        if (currentUrl === link.href || (currentUrl.endsWith('/') && link.getAttribute('href') === 'index.html')) {
+        const hrefAttr = link.getAttribute('href');
+        if (!hrefAttr) return;
+        const normalizedHref = hrefAttr.replace(basePath, ''); // Remove base path for comparison
+        
+        if (currentUrl === link.href || (currentUrl.endsWith('/') && normalizedHref === 'index.html')) {
             link.classList.add('active');
-        } else if (currentUrl.includes(link.getAttribute('href')) && link.getAttribute('href') !== 'index.html') {
+        } else if (currentUrl.includes(normalizedHref) && normalizedHref !== 'index.html') {
             link.classList.add('active');
         }
     });

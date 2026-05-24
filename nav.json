@@ -1,0 +1,14 @@
+[
+  { "title": "Home", "url": "index.html" },
+  { "title": "Research", "url": "research.html" },
+  { "title": "Teaching and Etc.", "url": "teaching.html" },
+  { 
+    "title": "Small Talk", 
+    "url": "small_talk.html",
+    "subsections": [
+      { "title": "Math Websites", "url": "Small_Talk/math_websites.html" },
+      { "title": "Pictures", "url": "Small_Talk/pictures.html" }
+    ]
+  },
+  { "title": "CV", "url": "https://www.google.com", "target": "_blank" }
+]
