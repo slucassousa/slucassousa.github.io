@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', async () => {
     // Determine base path based on the script tag src
-    const scriptTag = document.querySelector('script[src$="js/main.js"]');
-    const basePath = scriptTag ? scriptTag.getAttribute('src').replace('js/main.js', '') : './';
+    const scriptTag = document.querySelector('script[src*="js/main.js"]');
+    const basePath = scriptTag ? scriptTag.getAttribute('src').split('js/main.js')[0] : './';
     
     // Fetch and build navigation
     try {
         const response = await fetch(basePath + 'nav.json');
+        if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
         const navData = await response.json();
         const navMenu = document.querySelector('.nav-menu');
         
