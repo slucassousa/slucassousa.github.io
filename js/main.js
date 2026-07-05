@@ -86,7 +86,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     const nextBtn = document.querySelector('.next-btn');
 
     let currentIndex = 0;
-    const images = Array.from(document.querySelectorAll('.gallery-item img')).map(img => img.src);
+    const images = Array.from(document.querySelectorAll('.gallery-item img')).map(img => img.getAttribute('data-full') || img.src);
 
     if (galleryItems.length > 0) {
         galleryItems.forEach((item, index) => {
