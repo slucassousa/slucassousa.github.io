@@ -1,13 +1,13 @@
 [
   { "title": "Home", "url": "/" },
-  { "title": "Research", "url": "research.html" },
-  { "title": "Teaching and Etc.", "url": "teaching.html" },
+  { "title": "Research", "url": "research" },
+  { "title": "Teaching and Etc.", "url": "teaching" },
   { 
     "title": "Small Talk", 
-    "url": "small_talk.html",
+    "url": "small_talk",
     "subsections": [
-      { "title": "Math Websites", "url": "Small_Talk/math_websites.html" },
-      { "title": "Pictures", "url": "Small_Talk/pictures.html" }
+      { "title": "Math Websites", "url": "Small_Talk/math_websites" },
+      { "title": "Pictures", "url": "Small_Talk/pictures" }
     ]
   },
   { "title": "CV", "url": "CV.pdf", "target": "_blank" }

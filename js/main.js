@@ -70,9 +70,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         if (!hrefAttr) return;
         const normalizedHref = hrefAttr.replace(basePath, ''); // Remove base path for comparison
         
-        if (currentUrl === link.href || (currentUrl.endsWith('/') && normalizedHref === 'index.html')) {
+        if (currentUrl === link.href || (currentUrl.endsWith('/') && normalizedHref === '/')) {
             link.classList.add('active');
-        } else if (currentUrl.includes(normalizedHref) && normalizedHref !== 'index.html') {
+        } else if (currentUrl.includes(normalizedHref) && normalizedHref !== '/') {
             link.classList.add('active');
         }
     });

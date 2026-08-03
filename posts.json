@@ -2,14 +2,14 @@
   {
     "date": "Jun 2026",
     "title": "Post title",
-    "url": "post.html",
-    "description": "..."
+    "url": "post",
+    "description": "Short description of the new post.",
+    "tags": ["tag1", "tag2"]
   },
   {
-    "date": "Jul 2026",
-    "title": "Post",
-    "url": "post.html",
+    "date": "Month Year",
+    "title": "Post Title",
+    "url": "post",
     "description": "..."
   }
 ]
-
