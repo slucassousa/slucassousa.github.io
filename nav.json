@@ -10,5 +10,5 @@
       { "title": "Pictures", "url": "Small_Talk/pictures.html" }
     ]
   },
-  { "title": "CV", "url": "pdf files/CV.pdf", "target": "_blank" }
+  { "title": "CV", "url": "CV.pdf", "target": "_blank" }
 ]
