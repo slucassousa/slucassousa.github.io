@@ -1,20 +1,15 @@
 [
   {
-    "date": "Feb 2026",
+    "date": "Jun 2026",
     "title": "Post title",
-    "url": "post.html?id=post_template",
-    "description": "Post description..."
+    "url": "post.html",
+    "description": "..."
   },
   {
-    "date": "Jan 2026",
-    "title": "Post title",
-    "url": "post.html?id=post_template_2",
-    "description": "Post description..."
-  },
-  {
-    "date": "Jan 2026",
-    "title": "Post title",
-    "url": "post.html?id=post_template",
-    "description": "Post description..."
+    "date": "Jul 2026",
+    "title": "Post",
+    "url": "post.html",
+    "description": "..."
   }
 ]
+

@@ -30,3 +30,9 @@ foreach ($img in $images) {
         Write-Host "Error processing $($img.Name): $_"
     }
 }
+
+# Generate gallery.json for the frontend
+$fileNames = $images | Select-Object -ExpandProperty Name
+$jsonPath = Join-Path $sourceDir "gallery.json"
+$fileNames | ConvertTo-Json | Out-File -FilePath $jsonPath -Encoding utf8
+Write-Host "Generated gallery.json with $($fileNames.Count) images"
