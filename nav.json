@@ -1,5 +1,5 @@
 [
-  { "title": "Home", "url": "index.html" },
+  { "title": "Home", "url": "/" },
   { "title": "Research", "url": "research.html" },
   { "title": "Teaching and Etc.", "url": "teaching.html" },
   { 

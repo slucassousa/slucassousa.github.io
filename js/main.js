@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', async () => {
             
             navData.forEach(item => {
                 const li = document.createElement('li');
-                const isExternal = item.url.startsWith('http');
+                const isExternal = item.url.startsWith('http') || item.url.startsWith('/');
                 const itemUrl = isExternal ? item.url : basePath + item.url;
                 const targetAttr = item.target ? `target="${item.target}"` : '';
                 
