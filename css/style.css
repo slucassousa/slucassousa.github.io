@@ -342,6 +342,11 @@ body.dark-mode-black .dropdown-item {
     --overlay-opacity: 0.4;
 }
 
+.header-post {
+    background-image: url('../images/header/pato.jpg');
+    --overlay-opacity: 0.4;
+}
+
 /* Home Section */
 .home-section {
     display: flex;

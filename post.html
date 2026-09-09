@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +8,9 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Custom CSS -->
@@ -18,15 +21,18 @@
             font-size: 1.1rem;
             line-height: 1.8;
         }
+
         .post-content p {
             margin-bottom: 20px;
         }
+
         .post-meta {
             color: var(--gray);
             font-style: italic;
             margin-bottom: 30px;
             text-align: center;
         }
+
         .post-content img {
             max-width: 100%;
             height: auto;
@@ -36,6 +42,7 @@
     <!-- Marked.js for Markdown parsing -->
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </head>
+
 <body>
     <!-- Navigation -->
     <nav class="navbar">
@@ -50,7 +57,7 @@
     </nav>
 
     <!-- Post Header -->
-    <header class="cover-section" style="background-image: url('images/header/music.jpg');">
+    <header class="cover-section header-post">
         <div class="cover-content">
             <h1 id="post-title">Loading...</h1>
         </div>
@@ -62,7 +69,7 @@
             <div class="post-meta" id="post-date-container" style="display: none;">
                 Posted on <span class="post-date" id="post-date"></span>
             </div>
-            
+
             <div id="loading-error" style="display: none; text-align: center; color: red;">
                 <p>Error loading post. Are you running a local server?</p>
             </div>
@@ -87,7 +94,7 @@
         document.addEventListener('DOMContentLoaded', async () => {
             const urlParams = new URLSearchParams(window.location.search);
             const postId = urlParams.get('id');
-            
+
             if (!postId) {
                 document.getElementById('post-title').textContent = 'Post Not Found';
                 document.getElementById('post-content').innerHTML = '<p>No post ID provided.</p>';
@@ -98,7 +105,7 @@
                 // Fetch the post metadata from posts.json
                 const jsonResponse = await fetch('posts.json');
                 const posts = await jsonResponse.json();
-                
+
                 const postMeta = posts.find(p => p.url && p.url.includes(`id=${postId}`));
                 if (postMeta) {
                     document.getElementById('post-title').textContent = postMeta.title;
@@ -112,12 +119,12 @@
                 // Fetch the markdown content
                 const mdResponse = await fetch(`Small_Talk/posts/${postId}.md`);
                 if (!mdResponse.ok) throw new Error('Markdown file not found');
-                
+
                 const markdownText = await mdResponse.text();
-                
+
                 // Convert Markdown to HTML
                 document.getElementById('post-content').innerHTML = marked.parse(markdownText);
-                
+
             } catch (error) {
                 console.error(error);
                 document.getElementById('loading-error').style.display = 'block';
@@ -126,4 +133,5 @@
         });
     </script>
 </body>
+
 </html>
