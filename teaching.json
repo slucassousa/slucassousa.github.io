@@ -1,13 +1,8 @@
 [
   {
-    "date": "Year",
-    "title": "Course Name",
-    "url": "course",
-    "description": "Institution."
-  },
-  {
-    "date": "Year",
-    "title": "Talk Title",
-    "description": "Conference/Institution."
+    "date": "2026.1",
+    "title": "Pré-processamento e visualização de dados",
+    "url": "courses/est160_2026_ufv",
+    "description": "UFV"
   }
 ]
